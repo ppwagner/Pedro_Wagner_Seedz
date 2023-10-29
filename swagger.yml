@@ -1,0 +1,49 @@
+swagger: "2.0"
+info:
+  title: API de Consulta de Dados Agrícolas
+  description: Uma API para consultar dados agrícolas de uma base de dados SQLite.
+  version: 1.0.0
+servers:
+  - url: http://red2581.pythonanywhere.com
+paths:
+  /:
+    get:
+      summary: Consultar registros
+      parameters:
+        - name: cod_ano
+          in: query
+          description: Ano do registro
+          required: true
+          type: integer
+        - name: cod_variavel
+          in: query
+          description: Código da variável
+          required: true
+          type: integer
+        - name: cod_produto_lavouras_temporarias
+          in: query
+          description: Código do produto de lavouras temporárias
+          required: true
+          type: integer
+        - name: cod_municipio
+          in: query
+          description: Código do município
+          required: true
+          type: integer
+      responses:
+        200:
+          description: Sucesso
+          schema:
+            type: object
+        400:
+          description: Requisição inválida
+  /swaggeryml:
+    get:
+      summary: Obter especificação Swagger
+      responses:
+        200:
+          description: Sucesso
+          schema:
+            type: object
+        400:
+          description: Requisição inválida
